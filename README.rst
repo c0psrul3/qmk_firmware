@@ -54,6 +54,7 @@ in the event you don't have the requisite tools, try running the installer ::
     ./util/qmk_install.sh
 
 or, try building inside a Docker container ::
+
     ./util/docker_build.sh
 
 
