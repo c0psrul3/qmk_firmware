@@ -22,13 +22,13 @@ extern uint8_t is_master;
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
 #define _QWERTY 0
-#define _LOWER 1
+#define _NUMBR 1
 #define _RAISE 2
 #define _ADJUST 3
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
-  LOWER,
+  NUMBR,
   RAISE,
   ADJUST,
   BACKLIT,
@@ -41,7 +41,7 @@ enum macro_keycodes {
 
 #define KC______ KC_TRNS
 #define KC_XXXXX KC_NO
-#define KC_LOWER LOWER
+#define KC_NUMBR NUMBR
 #define KC_RAISE RAISE
 #define KC_RST   RESET
 #define KC_ERST  EEPROM_RESET
@@ -62,27 +62,39 @@ enum macro_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,\
+        GRV,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       SFCPS,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       CTLTB,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  RSFT,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   ENT,      SPC, RAISE, ALTKN \
+                                  GUIEI, NUMBR,   ENT,      SPC, RAISE, ALTKN \
                               //`--------------------'  `--------------------'
   ),
 
-  [_LOWER] = LAYOUT_kc( \
+  [_NUMBER] = LAYOUT_kc(
   //,-----------------------------------------.                ,-----------------------------------------.
-        GRV,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,  BSPC,\
+        ESC,    F1,    F2,    F3,    F4,    F5,                       ,     7,     8,     9,  MINS,  BSLS,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      SFCPS,    F1,    F2,    F3,    F4,    F5,                     F6,    F7,    F8,    F9,   F10,   ENT,\
+      SFCPS,      ,      ,      ,      ,      ,                       ,     4,     5,     6,  PLUS,   ENT,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      CTLTB,   F11,   F12,   F13,   F14,   F15,                    F16,   F17,   F18,   F19,   F20,  RSFT,\
+      CTLTB,      ,      ,      ,      ,      ,                       ,     1,     2,     3,   DOT,  COMM,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   ENT,      SPC, RAISE, ALTKN \
+                                  GUIEI, NUMBR,   ENT,      SPC, RAISE,     0 \
                               //`--------------------'  `--------------------'
   ),
+
+//  [_LOWER] = LAYOUT_kc( \
+//  //,-----------------------------------------.                ,-----------------------------------------.
+//        GRV,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,  BSPC,\
+//  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
+//      SFCPS,    F1,    F2,    F3,    F4,    F5,                     F6,    F7,    F8,    F9,   F10,   ENT,\
+//  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
+//      CTLTB,   F11,   F12,   F13,   F14,   F15,                    F16,   F17,   F18,   F19,   F20,  RSFT,\
+//  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
+//                                  GUIEI, LOWER,   ENT,      SPC, RAISE, ALTKN \
+//                              //`--------------------'  `--------------------'
+//  ),
 
   [_RAISE] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
@@ -92,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       CTLTB, XXXXX,  VOLD,  VOLU,  MUTE,  MPLY,                   UNDS,  PLUS,  LBRC,  RBRC,  SLSH,  RSFT,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   ENT,      SPC, RAISE, ALTKN \
+                                  GUIEI, NUMBR,   ENT,      SPC, RAISE, ALTKN \
                               //`--------------------'  `--------------------'
   ),
 
@@ -104,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LMOD,  LHUD,  LSAD,  LVAD,  PGDN,  END,                    BRID,  BRIU,  VOLD,  VOLU,  MUTE,  MPLY,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   ENT,      SPC, RAISE, ALTKN \
+                                  GUIEI, NUMBR,   ENT,      SPC, RAISE, ALTKN \
                               //`--------------------'  `--------------------'
   )
 };
@@ -190,23 +202,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
-    case LOWER:
+    case NUMBR:
       if (record->event.pressed) {
-        layer_on(_LOWER);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+        layer_on(_NUMBR);
+        update_tri_layer_RGB(_NUMBR, _RAISE, _ADJUST);
       } else {
-        layer_off(_LOWER);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+        layer_off(_NUMBR);
+        update_tri_layer_RGB(_NUMBR, _RAISE, _ADJUST);
       }
       return false;
       break;
     case RAISE:
       if (record->event.pressed) {
         layer_on(_RAISE);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+        update_tri_layer_RGB(_NUMBR, _RAISE, _ADJUST);
       } else {
         layer_off(_RAISE);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+        update_tri_layer_RGB(_NUMBR, _RAISE, _ADJUST);
       }
       return false;
       break;
