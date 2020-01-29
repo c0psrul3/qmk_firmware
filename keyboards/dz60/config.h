@@ -9,7 +9,7 @@
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    KBDFans
 #define PRODUCT         DZ60
-#define DESCRIPTION     DZ60 Keyboard
+#define DESCRIPTION     zmnichols9370
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -28,6 +28,7 @@
 #ifdef BACKLIGHT_PIN
 #define BACKLIGHT_LEVELS 5
 #endif
+
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
 
