@@ -62,15 +62,21 @@ enum macro_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        GRV,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,\
+       GESC,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      SFCPS,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,\
+      CTLTB,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      CTLTB,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  RSFT,\
+       LSFT,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,   DEL,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   ENT,      SPC, RAISE, ALTKN \
+                              LALT, MO(7), LT(8,SPC),    LSFT_T(ENT), MO(2), LALT \
                               //`--------------------'  `--------------------'
   ),
+  //[1] = LAYOUT(KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, LCTL_T(KC_TAB), KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_XXXXX, KC_LSFT, KC_F11, KC_F12, KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, KC_F19, KC_F20, KC_XXXXX, LGUI_T(KC_LANG2), MO(1), KC_SPC, KC_ENT, MO(2), LALT_T(KC_LANG1)),
+  //[2] = LAYOUT(KC_ESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC, LCTL_T(KC_TAB), KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_MINS, KC_EQL, KC_LCBR, KC_RCBR, KC_PIPE, KC_GRV, KC_LSFT, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_BSLS, KC_TILD, LGUI_T(KC_XXXXX), MO(1), KC_SPC, KC_ENT, MO(2), LALT_T(KC_XXXXX)),
+
+  //[7] = LAYOUT(KC_TILD, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_LBRC, KC_RBRC, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_TRNS, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX),
+  //[8] = LAYOUT(KC_ESC, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_EQL, KC_7, KC_8, KC_9, KC_LBRC, KC_RBRC, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_MINS, KC_4, KC_5, KC_6, KC_XXXXX, KC_BSLS, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_1, KC_2, KC_3, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_XXXXX, KC_TRNS, KC_XXXXX, KC_XXXXX, KC_0),
+
 
   [_LOWER] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
